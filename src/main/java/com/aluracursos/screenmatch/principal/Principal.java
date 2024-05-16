@@ -31,12 +31,12 @@ public class Principal {
                     1 - Buscar series 
                     2 - Buscar episodios
                     3 - Mostrar series buscadas
-                    4 - Buscar series por titulo
+                    4 - Buscar series por título
                     5 - Top 5 mejores series
-                    6 - Buscar Series por categoría
-                    7 - filtrar series por temporadas y evaluación
-                    8 - Buscar episodios por titulo
-                    9 - Top 5 episodios por Serie
+                    6 - Buscar series por categoría
+                    7 - Filtrar series por temporadas y evaluación
+                    8 - Buscar episodios por título
+                    9 - Top 5 episodios por serie
                                   
                     0 - Salir
                    ("************************************************");
@@ -154,11 +154,11 @@ public class Principal {
     private void buscarTop5Series(){
         List<Serie> topSeries = repositorio.findTop5ByOrderByEvaluacionDesc();
         topSeries.forEach(s ->
-                System.out.println("Serie: " + s.getTitulo() + " Evaluacion: " + s.getEvaluacion()) );
+                System.out.println("Serie: " + s.getTitulo() + " Evaluación: " + s.getEvaluacion()) );
     }
 
     private void buscarSeriesPorCategoria(){
-        System.out.println("Escriba el genero/categoría de la serie que desea buscar");
+        System.out.println("Escriba el género/categoría de la serie que desea buscar");
         var genero = teclado.nextLine();
         var categoria = Categoria.fromEspanol(genero);
         List<Serie> seriesPorCategoria = repositorio.findByGenero(categoria);
@@ -166,16 +166,16 @@ public class Principal {
         seriesPorCategoria.forEach(System.out::println);
     }
     public void filtrarSeriesPorTemporadaYEvaluacion(){
-        System.out.println("¿Filtrar séries con cuántas temporadas? ");
+        System.out.println("¿Filtrar series con cuántas temporadas? ");
         var totalTemporadas = teclado.nextInt();
         teclado.nextLine();
-        System.out.println("¿Com evaluación apartir de cuál valor? ");
+        System.out.println("¿Con evaluación a partir de cuál valor? ");
         var evaluacion = teclado.nextDouble();
         teclado.nextLine();
         List<Serie> filtroSeries = repositorio.seriesPorTemparadaYEvaluacion(totalTemporadas,evaluacion);
         System.out.println("*** Series filtradas ***");
         filtroSeries.forEach(s ->
-                System.out.println(s.getTitulo() + "  - evaluacion: " + s.getEvaluacion()));
+                System.out.println(s.getTitulo() + "  - evaluación: " + s.getEvaluacion()));
     }
 
     private void  buscarEpisodiosPorTitulo(){

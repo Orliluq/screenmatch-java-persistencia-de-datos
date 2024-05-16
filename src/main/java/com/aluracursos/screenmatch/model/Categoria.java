@@ -20,7 +20,7 @@ public enum Categoria {
                 return categoria;
             }
         }
-        throw new IllegalArgumentException("Ninguna categoria encontrada: " + text);
+        throw new IllegalArgumentException("Ninguna categorÍa encontrada: " + text);
     }
 
     public static Categoria fromEspanol(String text) {
@@ -29,7 +29,7 @@ public enum Categoria {
                 return categoria;
             }
         }
-        throw new IllegalArgumentException("Ninguna categoria encontrada: " + text);
+        throw new IllegalArgumentException("Ninguna categorÍa encontrada: " + text);
     }
 
 }
